@@ -1,6 +1,4 @@
-artyminds
-thejournalbee
-satisfinds
-mind.satisfy
-asmrtacoss
-artybirds
+[insert instagram accounts here. Separated by lines]
+Example1
+Example2
+(etc...)
