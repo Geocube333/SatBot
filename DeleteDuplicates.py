@@ -1,6 +1,7 @@
 #! /usr/bin/python
 
 import os
+import shutil as sh
 import hashlib as h
 
 hashlist=[]
@@ -17,26 +18,25 @@ def image(i):
     hashlist.append(h.sha1(byte).hexdigest())
 
 def dele(fileType, ext):
-  burnlist=[]
-  num1=0
 
-  for i in hashlist:
-    num2=0
-    for j in hashlist:
-      if i==j and num1 != num2:
-        burnlist.append(num2)
-        hashlist.pop(hashlist[num2])
-      num2+=1
-    num1+=1
+  if os.path.isdir('finalposts')==False:
+    os.mkdir('finalposts')
 
-  burnlist.sort
+  sortedHashes = sorted(hashlist)
+  savedIndexes=[]
 
-  for i in burnlist:
+  for i in sortedHashes:
+    savedIndexes.append(hashlist.index(i))
+
+  savedIndexes.sort()
+  savedIndexes=list(dict.fromkeys(savedIndexes))
+  print(savedIndexes)
+
+  for i in savedIndexes:
     try:
-      os.remove('content/'+fileType+str(i)+ext)
+      sh.move('content/'+fileType+str(i)+ext, 'finalposts/'+fileType+str(i)+ext)
     except FileNotFoundError:
-      print('File Already Deleted')
-
+      print('File is not a '+fileType+' Or doesn\'t exist')
 
 for i in range(len(dirs)):
 
