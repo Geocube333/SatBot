@@ -26,8 +26,9 @@ How to use:
                           ./DownloadContent.py 7
                           //This must be done in a cmd/terminal
                           
-5. Run DeleteDuplicate.py **NOTE: DELETEDUPLICATE IS CURRENTLY NOT FULLY RELIABLE. However it does help reduce the amount of
-                          files that have to be posted.
+5. Run DeleteDuplicates.py **NOTE: DeleteDuplicates is now functional.
 
 Optional 6. Run Clean.py  //Clean.py will delete all extra files in the SatBot Directory. Clean.py can be run with argument -k
                           this will remove only the /tmp/ and /links/ directory.
+                          
+SatBot (v1.1)
