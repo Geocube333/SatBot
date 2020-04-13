@@ -16,6 +16,7 @@ with open("links/links.txt", 'r') as f:
 dirSize=len(os.listdir("links"))
 fileNum=0
 vid=False
+pic=False
 links=[]
 
 if len(sys.argv)==2:
@@ -34,6 +35,7 @@ for l in contentLinks:
 
   if len(videoUrl)==2:
     contentUrl=imageUrl
+    pic=True
   elif len(videoUrl)!=0:
     contentUrl=videoUrl
     vid=True
@@ -41,8 +43,8 @@ for l in contentLinks:
   if vid:
     extension='.mp4'
     filename='video'
-  else:
-    extentsion='.jpg'
+  if pic:
+    extension='.jpg'
     filename='image'
 
   if os.path.isdir("tmp")==False:
